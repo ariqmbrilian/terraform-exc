@@ -11,4 +11,13 @@ provider "google" {
 }
 resource "google_compute_network" "vpc_custom" {
   name = "vpc-custom"
+  auto_create_subnetworks = false
+}
+
+resource "google_compute_subnetwork" "subnet_custom" {
+  name = "subnet-custom"
+  ip_cidr_range = 
+  region = google_compute_network.vpc_custom
+  network = 
+  
 }
